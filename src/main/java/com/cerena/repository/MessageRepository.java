@@ -4,6 +4,6 @@ import com.cerena.entity.Message;
 
 public class MessageRepository extends RepositoryManager<Message, Long> {
 	public MessageRepository() {
-		super(entityClass);
+		super(Message.class);
 	}
 }
