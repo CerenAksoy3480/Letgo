@@ -9,7 +9,7 @@ public class JPAUtility {
 	
 	static {
 		try {
-			emf = Persistence.createEntityManagerFactory("letgoPU");
+			emf = Persistence.createEntityManagerFactory("letgo_PU");
 		} catch (Exception e) {
 			throw new RuntimeException("EntityManagerFactory oluşturulamadı", e);
 		}

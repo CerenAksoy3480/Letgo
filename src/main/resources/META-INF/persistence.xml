@@ -5,7 +5,7 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
 
-    <persistence-unit name="letgoPU">
+    <persistence-unit name="letgo_PU">
         <class>com.cerena.entity.User</class>
         <class>com.cerena.entity.Ilan</class>
         <class>com.cerena.entity.FavouriteIlan</class>
@@ -24,7 +24,7 @@
                       value="postgres"/>
 
             <property name="jakarta.persistence.jdbc.password"
-                      value="1234"/>
+                      value="root"/>
 
 
             <property name="hibernate.show_sql" value="false"/>

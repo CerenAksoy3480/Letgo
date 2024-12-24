@@ -3,17 +3,15 @@ package com.cerena.entity;
 
 import com.cerena.enums.UserStatus;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "tbl_user")
 
@@ -37,9 +35,24 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<FavouriteIlan>favoriIlanlar;
 	
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
 	private List<Message>mesajlar;
 	
-	
+	@Override
+	public String toString() {
+		return "User{" +
+				"id=" + id +
+				", username='" + username + '\'' +
+				", password='[PROTECTED]'" + // Şifreyi açık olarak yazdırmayın
+				", email='" + email + '\'' +
+				", tel='" + tel + '\'' +
+				", profilImageUrl='" + profilImageUrl + '\'' +
+				", konum='" + konum + '\'' +
+				", status=" + status +
+				", ilanlar=" + (ilanlar != null ? ilanlar.stream().map(Ilan::getId).collect(Collectors.toList()) : "null") +
+				", favoriIlanlar=" + (favoriIlanlar != null ? favoriIlanlar.stream().map(FavouriteIlan::getId).collect(Collectors.toList()) : "null") +
+				", mesajlar=" + (mesajlar != null ? mesajlar.stream().map(Message::getId).collect(Collectors.toList()) : "null") +
+				'}';
+	}
 	
 }
