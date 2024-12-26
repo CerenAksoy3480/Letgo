@@ -1,6 +1,6 @@
 package com.cerena.enums;
 
-public enum Favourite {
+public enum FavouriteStatus {
 	ACTIVE,
 	REMOVED
 }

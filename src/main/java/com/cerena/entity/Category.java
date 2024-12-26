@@ -1,6 +1,8 @@
 package com.cerena.entity;
 
 
+import com.cerena.enums.CategoryStatus;
+import com.cerena.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -21,11 +23,15 @@ public class Category {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
+	
 	@Column(name = "parentcategoryid")
 	private  Long parentCategoryid;
 	
 	@OneToMany(mappedBy = "category", cascade = CascadeType.ALL)
 	private List<Ilan> ilanlar;
+	
+	@Enumerated(EnumType.STRING)
+	private CategoryStatus status;
 	
 	@Override
 	public String toString() {

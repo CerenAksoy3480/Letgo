@@ -1,6 +1,7 @@
 package com.cerena.entity;
 
 
+import com.cerena.enums.ImageStatus;
 import com.cerena.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -27,7 +28,7 @@ public class Image extends BaseEntity {
 	private String imageUrl;
 	
 	@Enumerated(EnumType.STRING)
-	private UserStatus status;
+	private ImageStatus status;
 	
 	
 

@@ -1,4 +1,4 @@
 package com.cerena.enums;
 
-public enum Image {
+public enum ImageStatus {
 }

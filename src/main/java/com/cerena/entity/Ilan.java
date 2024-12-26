@@ -1,6 +1,8 @@
 package com.cerena.entity;
 
 
+import com.cerena.enums.IlanStatus;
+import com.cerena.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -8,6 +10,7 @@ import lombok.experimental.SuperBuilder;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Getter
@@ -24,21 +27,27 @@ public class Ilan extends BaseEntity {
 	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name = "userid", nullable = false)
+	@JoinColumn(name = "userid")
 	private User user;
 	
 	@ManyToOne
-	@JoinColumn(name = "category_id", nullable = false)
+	@JoinColumn(name = "category_id")
 	private Category category;
 	
 	private String title;
 	private String description;
-	private String konum;
+	private String location;
 	private BigDecimal price;
+	
+	@Enumerated(EnumType.STRING)
+	private IlanStatus status;
 	
 	@OneToMany(mappedBy = "ilan", cascade = CascadeType.ALL)
 	private List<Image> images;
 	
+	
+
+
 	@Override
 	public String toString() {
 		return "Ilan{" +

@@ -1,5 +1,7 @@
 package com.cerena.entity;
 
+import com.cerena.enums.FavouriteStatus;
+import com.cerena.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
@@ -27,6 +29,7 @@ public class FavouriteIlan extends BaseEntity {
 	@JoinColumn(name="ilan_id")
 	private Ilan ilan;
 	
-	
+	@Enumerated(EnumType.STRING)
+	private FavouriteStatus status;
 
 }

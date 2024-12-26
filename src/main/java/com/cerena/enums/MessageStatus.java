@@ -1,6 +1,6 @@
 package com.cerena.enums;
 
-public enum Message {
+public enum MessageStatus {
 	SENT,
 	DELIVERED,
 	READ,

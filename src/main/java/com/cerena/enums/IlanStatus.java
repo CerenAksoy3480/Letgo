@@ -1,6 +1,6 @@
 package com.cerena.enums;
 
-public enum Ilan {
+public enum IlanStatus {
 	AVAILABLE,
 	SOLD,
 	EXPIRED,

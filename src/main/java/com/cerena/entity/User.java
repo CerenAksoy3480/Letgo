@@ -34,11 +34,17 @@ public class User extends BaseEntity{
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<Ilan>ilanlar;
 	
+	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<FavouriteIlan>favoriIlanlar;
 	
 	@OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
 	private List<Message>mesajlar;
+	
+	
+	
+
+	
 	
 	@Override
 	public String toString() {

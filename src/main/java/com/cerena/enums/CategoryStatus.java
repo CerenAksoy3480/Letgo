@@ -1,6 +1,6 @@
 package com.cerena.enums;
 
-public enum Category {
+public enum CategoryStatus {
 	MAIN_CATEGORY,
 	SUB_CATEGORY
 }

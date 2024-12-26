@@ -125,9 +125,17 @@ public class RepositoryManager<T, ID> implements ICrud<T, ID> {
 		TypedQuery<T> q = em.createQuery(criteriaQuery);
 		return q.getResultList();
 	}
-	
 	@Override
 	public boolean existsById(ID id) {
 		return em.find(entityClass, id) != null;
+	}
+	
+	public Optional<T> findByEmail(String email) {
+		return Optional.empty();
+	}
+	
+	public Optional<T> findByUsername(String username) {
+		return Optional.empty();
+		
 	}
 }

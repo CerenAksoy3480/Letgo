@@ -1,5 +1,6 @@
 package com.cerena.entity;
 
+import com.cerena.enums.MessageStatus;
 import com.cerena.enums.UserStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,7 +34,7 @@ public class Message {
 	private Ilan ilan;
 	
 	@Enumerated(EnumType.STRING)
-	private UserStatus status;
+	private MessageStatus status;
 	
 	private String text;
 	private LocalDate sendDate;
