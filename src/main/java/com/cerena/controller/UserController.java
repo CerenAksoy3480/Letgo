@@ -15,7 +15,7 @@ import static com.cerena.controller.BaseController.*;
 
 public class UserController {
 	
-	private final UserService userService ;
+	private final UserService userService;
 	private final IlanService ilanService;
 	private final MessageService messageService;
 	private final ImageService imageService;
@@ -26,23 +26,26 @@ public class UserController {
 	static Scanner scanner = new Scanner(System.in);
 	
 	Scanner input = new Scanner(System.in);
-	List<User>users = new ArrayList<User>();
+	List<User> users = new ArrayList<User>();
 	
-	public UserController(UserService userService, IlanService ilanService, MessageService messageService, ImageService imageService, FavouriteIlanService favouriteIlanService, CategoryService categoryService) {
+	public UserController(UserService userService, IlanService ilanService, MessageService messageService,
+	                      ImageService imageService, FavouriteIlanService favouriteIlanService,
+	                      CategoryService categoryService) {
 		this.userService = userService;
 		this.ilanService = ilanService;
 		this.messageService = messageService;
 		this.imageService = imageService;
 		this.favouriteIlanService = favouriteIlanService;
 		this.categoryService = categoryService;
+		
 	}
 	
-
 	
 	private boolean isValidEmail(String email) {
 		String emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
 		return email.matches(emailRegex);
 	}
+	
 	public void register() {
 		while (true) {
 			System.out.println(ConsoleColors.WHITE + "Email: ");
@@ -92,12 +95,13 @@ public class UserController {
 		String password = input.next();
 		
 		
-		boolean success =
-				users.stream().anyMatch(user -> user.getUsername().equals(username) && user.getPassword().equals(password));
+		boolean success = users.stream().anyMatch(user -> user.getUsername().equals(username) && user.getPassword()
+		                                                                                             .equals(password));
 		if (success) {
 			System.out.println(ConsoleColors.COLOR_GREEN + "Giriş başarılı!");
 			showQueriesMenu();
-		} else {
+		}
+		else {
 			System.out.println(ConsoleColors.COLOR_RED + "Kullanıcı adı veya şifre yanlış!");
 		}
 		
@@ -150,10 +154,12 @@ public class UserController {
 						User user = optionalUser.get();
 						if (user.getIlanlar() != null && !user.getIlanlar().isEmpty()) {
 							user.getIlanlar().forEach(System.out::println);
-						} else {
+						}
+						else {
 							System.out.println("Bu kullanıcının hiç ilanı yok.");
 						}
-					} else {
+					}
+					else {
 						System.out.println("Kullanıcı bulunamadı.");
 					}
 					break;
@@ -171,7 +177,7 @@ public class UserController {
 					}
 					break;
 				case 8:
-					System.out.println( "Cikis yapiliyor...");
+					System.out.println("Cikis yapiliyor...");
 					MainController.mainMenu();
 					break;
 				

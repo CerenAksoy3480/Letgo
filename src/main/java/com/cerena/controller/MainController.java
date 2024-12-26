@@ -10,15 +10,21 @@ import java.util.Optional;
 import java.util.Scanner;
 
 public class MainController extends BaseController {
-	private static UserController userController;
-	
+	private static final UserController userController=new UserController();
+	private static final IlanController ilanController=new IlanController();
+	private static final MessageController messageController=new MessageController();
+	private static final ImageController imageController=new ImageController();
+	private static final FavouriteIlanController favouriteIlanController=new FavouriteIlanController();
+	private static final CategoryController categoryController=new CategoryController();
+	private static UserService userService ;
+	private static IlanService ilanService;
+	private static MessageService messageService;
+	private static ImageService imageService;
+	private static FavouriteIlanService favouriteIlanService;
+	private static CategoryService categoryService;
 	
 	static Scanner scanner = new Scanner(System.in);
 	
-	public MainController(UserController userController, IlanController ilanController, MessageController messageController, ImageController imageController, FavouriteIlanController favouriteIlanController, CategoryController categoryController, UserService userService, IlanService ilanService, MessageService messageService, ImageService imageService, FavouriteIlanService favouriteIlanService, CategoryService categoryService) {
-		this.userController = new UserController();
-		
-	}
 	
 	
 	public static void mainMenu() {
