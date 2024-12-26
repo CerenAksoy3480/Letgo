@@ -5,18 +5,19 @@ import java.util.Scanner;
 
 import static com.cerena.constant.ConsoleColors.*;
 
-public class BaseController implements AutoCloseable{
-	protected final Scanner scanner;
+public class BaseController {
+	public static Scanner scanner;
 	private static final int DEFAULT_WIDTH = 30;
 	public BaseController() {
 		this.scanner = new Scanner(System.in);
 	}
 	
-	protected void printTitle(String metin) {
+	public static void printTitle(String metin) {
+		
 		printTitle(DEFAULT_WIDTH, metin);
 	}
 	
-	protected void printTitle(int starCount, String text) {
+	public static void printTitle(int starCount, String text) {
 		// En az text uzunluğu + 4 karakter olmalı (2 yıldız + 2 boşluk)
 		int minWidth = text.length() + 4;
 		int width = Math.max(starCount, minWidth);
@@ -62,7 +63,7 @@ public class BaseController implements AutoCloseable{
 		System.out.println(starLine);
 	}
 	
-	protected int readInt(String soru) {
+	public static int readInt(String soru) {
 		System.out.print(soru + " ");
 		
 		while (true) {
@@ -110,14 +111,10 @@ public class BaseController implements AutoCloseable{
 		System.out.println(COLOR_GREEN + message + COLOR_RESET);
 	}
 	
-	protected void printErrorMessage(String message) {
+	protected static void printErrorMessage(String message) {
 		System.out.println(COLOR_RED + message + COLOR_RESET);
 	}
-	@Override
-	public void close() {
-		if (scanner != null) {
-			scanner.close();
-		}
-	}
+	
+
 	
 }
